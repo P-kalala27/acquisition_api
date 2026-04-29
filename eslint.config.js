@@ -25,7 +25,7 @@ export default [
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'single'], // ✅ correction (quote → quotes)
       semi: ['error', 'always'],
-      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // ✅ correction (argsIgnorePatern)
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], 
       'no-console': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
