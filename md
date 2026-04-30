@@ -1,0 +1,1 @@
+You are a backend developer working on an express.js application with authentication features. your job is to extend the authentication service 
