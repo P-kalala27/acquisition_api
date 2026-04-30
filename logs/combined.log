@@ -28,3 +28,7 @@
 {"level":"info","message":"User amin@admin.com created successfully","service":"acquisition-api"}
 {"level":"error","message":"Sign up error res.cookies is not a function","service":"acquisition-api","stack":"TypeError: res.cookies is not a function\n    at Object.set (file:///E:/kube_cours/Aquisitions/acquisition_api/src/utils/cookie.js:10:17)\n    at signup (file:///E:/kube_cours/Aquisitions/acquisition_api/src/controller/auth.controller.js:28:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"}
 {"level":"info","message":"::1 - - [30/Apr/2026:12:51:50 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 491 \"-\" \"HTTPie\"","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [30/Apr/2026:12:54:41 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 63 \"-\" \"HTTPie\"","service":"acquisition-api"}
+{"level":"info","message":"User princekalala@pket.com created successfully","service":"acquisition-api"}
+{"level":"info","message":"User registered successfully: princekalala@pket.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [30/Apr/2026:12:54:53 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 107 \"-\" \"HTTPie\"","service":"acquisition-api"}
