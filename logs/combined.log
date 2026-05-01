@@ -32,3 +32,7 @@
 {"level":"info","message":"User princekalala@pket.com created successfully","service":"acquisition-api"}
 {"level":"info","message":"User registered successfully: princekalala@pket.com","service":"acquisition-api"}
 {"level":"info","message":"::1 - - [30/Apr/2026:12:54:53 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 107 \"-\" \"HTTPie\"","service":"acquisition-api"}
+{"level":"info","message":"User logged in successfully: princekalala@pket.com","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [30/Apr/2026:13:28:02 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 106 \"-\" \"HTTPie\"","service":"acquisition-api"}
+{"level":"info","message":"User logged out successfully","service":"acquisition-api"}
+{"level":"info","message":"::1 - - [30/Apr/2026:13:28:37 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 29 \"-\" \"HTTPie\"","service":"acquisition-api"}
