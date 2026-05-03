@@ -17,8 +17,6 @@ app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 app.use(morgan('combined', {stream: {write : (message) => logger.info(message.trim())}}))
 
-app.use(securityMiddleware)
-
 app.get('/', (req, res) => {
   logger.info('Hello from acquisitions !')
   res.status(200).send('Hello from Acquisitions');
@@ -32,6 +30,7 @@ app.get('/api', (req, res) => {
   res.status(200).json({message: 'Acquisition API is running'})
 })
 
+app.use(securityMiddleware)
 
 app.use('/api/auth', authRoutes);
 
