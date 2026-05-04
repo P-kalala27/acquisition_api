@@ -3,9 +3,11 @@
 This file provides guidance to WARP (warp.dev) when working with code in this repository.
 
 ## Project summary
+
 Node.js (ESM) Express API for user acquisition/auth flows, using Drizzle ORM with Neon Postgres and Arcjet request protection.
 
 ## Core development commands
+
 - Install dependencies:
   - `npm ci`
 - Run locally without Docker (expects env vars and reachable DB):
@@ -27,10 +29,12 @@ Node.js (ESM) Express API for user acquisition/auth flows, using Drizzle ORM wit
   - `npm run db:studio`
 
 ## Tests
+
 No test runner script is currently defined in `package.json`, and no test files are present in the repository at this time.  
 If tests are introduced later, add the canonical commands here (including single-test invocation).
 
 ## Environment and runtime model
+
 - Entry point: `src/index.js` loads dotenv and boots `src/server.js`.
 - Server binds on `0.0.0.0:${PORT}` (default `3000`).
 - Development is designed around `.env.development` + Neon Local proxy (`neon-local` host).
@@ -43,6 +47,7 @@ If tests are introduced later, add the canonical commands here (including single
   - `NODE_ENV`
 
 ## High-level architecture
+
 - `src/app.js` composes middleware and routes:
   - Global middleware first: `helmet`, `cors`, JSON/urlencoded parsing, `cookie-parser`, `morgan` wired to Winston.
   - Health/public routes: `/`, `/health`, `/api`.
@@ -56,6 +61,7 @@ If tests are introduced later, add the canonical commands here (including single
   - Persistence is done in services via Drizzle using `db` from `src/config/database.js`.
 
 ## Data and security flow
+
 - Auth flow:
   - `signup` validates request, creates user via `createUser`, hashes password with bcrypt, signs JWT, sets HTTP-only cookie.
   - `signin` validates request, authenticates via bcrypt compare, signs JWT, sets cookie.
@@ -68,17 +74,20 @@ If tests are introduced later, add the canonical commands here (including single
   - `src/middlewares/security.middleware.js` adds role-based sliding-window limits (`admin/user/guest`) and denies bot/shield/rate-limited traffic.
 
 ## Database and schema
+
 - Drizzle config: `drizzle.config.js`
   - Schema source: `./src/models/*.js`
   - Migrations output: `./drizzle`
 - Current model set is centered on `user` (`src/models/user.model.js`), used by auth and user services.
 
 ## Logging
+
 - Winston logger in `src/config/logger.js`:
   - JSON logs to `logs/error.log` and `logs/combined.log`
   - Console transport enabled when `NODE_ENV !== 'production'`
 - HTTP access logs are emitted via Morgan into the same logger stream.
 
 ## Repository conventions relevant to edits
+
 - Uses package import aliases in `package.json` (`#config/*`, `#services/*`, etc.); follow this style instead of deep relative paths.
 - ESM project (`"type": "module"`), so prefer `import`/`export` syntax across changes.

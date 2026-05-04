@@ -7,6 +7,7 @@ This application is containerized using Docker and connects to Neon Database. We
 Before running the application, you need to configure your environment variables. The project uses separate `.env` files for development and production.
 
 ### Development (`.env.development`)
+
 1. Create or open `.env.development`.
 2. Add your Neon credentials to enable Neon Local proxy branching:
    ```env
@@ -16,9 +17,10 @@ Before running the application, you need to configure your environment variables
    DATABASE_URL=postgres://user:password@neon-local:5432/dbname
    ARCJET_KEY=your_arcjet_key_here
    ```
-   *Note: `DATABASE_URL` connects through the `neon-local` container, not directly to the cloud.*
+   _Note: `DATABASE_URL` connects through the `neon-local` container, not directly to the cloud._
 
 ### Production (`.env.production`)
+
 1. Create or open `.env.production`.
 2. Add your direct Neon Cloud connection string:
    ```env
