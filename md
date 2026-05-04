@@ -92,3 +92,7 @@ You are a senior DevOps engineer. Your task is to dockerize my application that 
     - Write a `docker-compose.prod.yml` that runs both the app and serverless neondb for production.
     - Show how environment variables (`DATABASE_URL`) switch between dev and prod.
     - Provide documentation (in `README.md` style) for how a developer should start the app locally with Neon Local, and how the same app deploys with production Neon DB.
+
+
+
+    ======= i can use the following structure to get more code with IA ======
