@@ -37,5 +37,11 @@ app.use('/api/auth', authRoutes);
 
 app.use('/api/users', usersRouter);
 
+app.use((req, res) => {
+  res.status(404).json({
+    error: ' Route no found'
+  })
+})
+
 
 export default app;

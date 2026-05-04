@@ -1,0 +1,62 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+  pull_request:
+    branches:
+      - main
+      - staging
+
+jobs:
+  test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Tests
+        id: run-tests
+        env:
+          NODE_ENV: test
+          NODE_OPTIONS: --experimental-vm-modules
+          DATABASE_URL: postgres://dummy:dummy@localhost:5432/dummy
+        run: |
+          # We run tests with coverage to ensure the reports are generated
+          npm run test -- --coverage
+
+      - name: Upload Coverage Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 30
+
+      - name: Annotate test failures
+        if: failure()
+        run: |
+          echo "::error::Unit tests failed! Please check the logs above for detailed Jest output and correct the failing tests."
+
+      - name: Generate Job Summary
+        if: always()
+        run: |
+          echo "### Test Execution Status :rocket:" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "**Result:** Passed :white_check_mark:" >> $GITHUB_STEP_SUMMARY
+            echo "Coverage reports have been successfully generated and uploaded as artifacts." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Result:** Failed :x:" >> $GITHUB_STEP_SUMMARY
+            echo "Please review the test output to resolve the errors." >> $GITHUB_STEP_SUMMARY
+          fi

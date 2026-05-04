@@ -45,3 +45,12 @@
 {"level":"info","message":"::1 - - [01/May/2026:13:26:58 +0000] \"GET /health HTTP/1.1\" 403 50 \"-\" \"HTTPie\"","service":"acquisition-api"}
 {"ip":"::1","level":"warn","message":"Rate limit exceeded","path":"/health","service":"acquisition-api","userAgent":"HTTPie"}
 {"level":"info","message":"::1 - - [01/May/2026:13:26:58 +0000] \"GET /health HTTP/1.1\" 403 50 \"-\" \"HTTPie\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:40:38 +0000] \"GET /health HTTP/1.1\" 200 72 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:40:38 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:40:38 +0000] \"GET /nonexitent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:41:30 +0000] \"GET /health HTTP/1.1\" 200 73 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:41:30 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:41:30 +0000] \"GET /nonexitent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:44:00 +0000] \"GET /health HTTP/1.1\" 200 72 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:44:00 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"-\"","service":"acquisition-api"}
+{"level":"info","message":"::ffff:127.0.0.1 - - [04/May/2026:22:44:00 +0000] \"GET /nonexitent HTTP/1.1\" 404 27 \"-\" \"-\"","service":"acquisition-api"}
